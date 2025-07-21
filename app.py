@@ -65,19 +65,24 @@ rf_model.fit(X_train, y_train)
 lr_preds = lr_model.predict(X_test)
 rf_preds = rf_model.predict(X_test)
 
-# Evaluate
+# Evaluation Section in app.py
 st.subheader("📈 Model Evaluation")
+
 try:
+    # Mean Squared Error (with square root) for RMSE
     lr_rmse = np.sqrt(mean_squared_error(y_test, lr_preds))
-rf_rmse = np.sqrt(mean_squared_error(y_test, rf_preds))
+    rf_rmse = np.sqrt(mean_squared_error(y_test, rf_preds))
+
+    # R-squared Score
     lr_r2 = r2_score(y_test, lr_preds)
     rf_r2 = r2_score(y_test, rf_preds)
 
+    # Display Results
     st.success(f"✅ Linear Regression - RMSE: {lr_rmse:.2f}, R²: {lr_r2:.2f}")
     st.success(f"✅ Random Forest - RMSE: {rf_rmse:.2f}, R²: {rf_r2:.2f}")
+
 except Exception as e:
     st.error(f"❌ Error during evaluation: {e}")
-    st.stop()
 
 # Results chart
 st.subheader("📊 Actual vs Predicted")
