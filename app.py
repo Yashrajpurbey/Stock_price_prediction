@@ -75,3 +75,11 @@ if uploaded_file is not None:
     st.write(f"🟢 **Random Forest Prediction:** {rf_next:.2f}")
 
 df = pd.read_csv("data/stock_data.csv", parse_dates=["Date"], index_col="Date")
+
+import os
+
+if os.path.exists("data/stock_data.csv"):
+    df = pd.read_csv("data/stock_data.csv", parse_dates=["Date"], index_col="Date")
+else:
+    st.warning("⚠️ Please upload a stock_data.csv file to begin.")
+    st.stop()
