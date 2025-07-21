@@ -73,3 +73,5 @@ if uploaded_file is not None:
 
     st.write(f"🔵 **Linear Regression Prediction:** {lr_next:.2f}")
     st.write(f"🟢 **Random Forest Prediction:** {rf_next:.2f}")
+
+df = pd.read_csv("data/stock_data.csv", parse_dates=["Date"], index_col="Date")
