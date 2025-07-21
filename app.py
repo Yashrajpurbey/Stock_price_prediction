@@ -68,8 +68,8 @@ rf_preds = rf_model.predict(X_test)
 # Evaluate
 st.subheader("📈 Model Evaluation")
 try:
-    lr_rmse = mean_squared_error(y_test, lr_preds, squared=False)
-    rf_rmse = mean_squared_error(y_test, rf_preds, squared=False)
+    lr_rmse = np.sqrt(mean_squared_error(y_test, lr_preds))
+rf_rmse = np.sqrt(mean_squared_error(y_test, rf_preds))
     lr_r2 = r2_score(y_test, lr_preds)
     rf_r2 = r2_score(y_test, rf_preds)
 
