@@ -2,3 +2,4 @@
 ```bash
 pip install -r requirements.txt
 jupyter notebook notebooks/stock_prediction.ipynb
+streamlit
